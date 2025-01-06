@@ -97,9 +97,7 @@ def export_chat_history(chatroom_id: str, export_path: str, export_format: str =
             10000: True   # 系统消息
         }
 
-    # 1. 关闭现有连接并重新初始化数据库
-    msg_db.close()
-    micro_msg_db.close()
+    # 1. 初始化数据库
     msg_db.init_database()
     micro_msg_db.init_database()
     
@@ -252,12 +250,8 @@ def export_chat_history(chatroom_id: str, export_path: str, export_format: str =
 
     except Exception as e:
         raise Exception(f"Error querying messages: {e}")
-    finally:
-        # 9. 关闭数据库连接
-        msg_db.close()
-        micro_msg_db.close()
 
-    # 10. 执行导出
+    # 9. 执行导出
     print(f"开始导出 {export_format.upper()} 格式聊天记录: {contact.remark}")
     if time_range:
         time_desc = f" ({time_range[0]} 至 {time_range[1]})" if all(time_range) else \
@@ -282,5 +276,5 @@ if __name__ == "__main__":
         chatroom_id=group_id,
         export_path="./output",
         export_format="txt",
-        time_range=("2025-01-05", "2025-01-06")  # 导出2024年1月的聊天记录
+        time_range=("2025-01-06", "2025-01-07")  # 导出2024年1月的聊天记录
     )

@@ -8,6 +8,7 @@
 import hmac
 import hashlib
 import ctypes
+import json
 import winreg
 import pymem
 from win32com.client import Dispatch
