@@ -39,7 +39,7 @@ class UserinfoController(QWidget, Ui_Frame):
         self.l_remark.setText(contact.remark)
         self.l_avatar.setPixmap(contact.avatar)
         self.l_nickname.setText(f'昵称：{contact.nickName}')
-        self.l_username.setText(f'微信号：{contact.alias}')
+        self.l_username.setText(f'微信号：{contact.alias} {contact.wxid}')
         self.lineEdit.setText(contact.remark)
         # self.l_region.setVisible(False)
         self.l_contact_label.setText(contact.label_name)

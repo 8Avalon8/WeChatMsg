@@ -21,3 +21,4 @@ server
 *.spec
 test*
 wordcloud.html
+.venv
